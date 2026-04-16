@@ -1,0 +1,131 @@
+<div class="seite">
+  <header>
+    <h1>{{ title }}</h1>
+    <p>Einfaches Frontend für SchoolWeb</p>
+  </header>
+
+  <nav>
+    <button (click)="setSeite('dashboard')" [class.aktiv]="aktiveSeite === 'dashboard'">Dashboard</button>
+    <button (click)="setSeite('schueler')" [class.aktiv]="aktiveSeite === 'schueler'">Schüler</button>
+    <button (click)="setSeite('lehrer')" [class.aktiv]="aktiveSeite === 'lehrer'">Lehrer</button>
+    <button (click)="setSeite('raeume')" [class.aktiv]="aktiveSeite === 'raeume'">Räume</button>
+    <button (click)="setSeite('statistik')" [class.aktiv]="aktiveSeite === 'statistik'">Statistik</button>
+  </nav>
+
+  <div class="status loading" *ngIf="loading">Lade Daten...</div>
+  <div class="status fehler" *ngIf="fehler">{{ fehler }}</div>
+  <div class="status erfolg" *ngIf="erfolg">{{ erfolg }}</div>
+
+  <section *ngIf="aktiveSeite === 'dashboard'">
+    <h2>Dashboard</h2>
+    <div class="kacheln">
+      <div class="kachel">
+        <span>Schüler</span>
+        <strong>{{ schueler.length }}</strong>
+      </div>
+      <div class="kachel">
+        <span>Lehrer</span>
+        <strong>{{ lehrer.length }}</strong>
+      </div>
+      <div class="kachel">
+        <span>Räume</span>
+        <strong>{{ klassenraeume.length }}</strong>
+      </div>
+    </div>
+  </section>
+
+  <section *ngIf="aktiveSeite === 'schueler'">
+    <h2>Schüler</h2>
+    <h3>Schüler erstellen</h3>
+    <form (ngSubmit)="schuelerSpeichern()" class="formular">
+      <input type="text" name="klasse" [(ngModel)]="neuerSchueler.klasse" placeholder="Klasse">
+      <input type="date" name="geburtstag" [(ngModel)]="neuerSchueler.geburtstag">
+      <select name="geschlecht" [(ngModel)]="neuerSchueler.geschlecht">
+        <option value="weiblich">weiblich</option>
+        <option value="männlich">männlich</option>
+      </select>
+      <button type="submit">Schüler speichern</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Klasse</th>
+          <th>Geschlecht</th>
+          <th>Alter</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of schueler">
+          <td>{{ s.id }}</td>
+          <td>{{ s.klasse }}</td>
+          <td>{{ s.geschlecht }}</td>
+          <td>{{ s.alter }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section *ngIf="aktiveSeite === 'lehrer'">
+    <h2>Lehrer</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Fachbereich</th>
+          <th>Erfahrung</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let l of lehrer">
+          <td>{{ l.id }}</td>
+          <td>{{ l.vorname }} {{ l.nachname }}</td>
+          <td>{{ l.fachbereich }}</td>
+          <td>{{ l.erfahrung }} Jahre</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section *ngIf="aktiveSeite === 'raeume'">
+    <h2>Klassenräume</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>m²</th>
+          <th>Plätze</th>
+          <th>Cynap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of klassenraeume">
+          <td>{{ r.name }}</td>
+          <td>{{ r.raumInQm }}</td>
+          <td>{{ r.plaetze }}</td>
+          <td>{{ r.hasCynap ? 'Ja' : 'Nein' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section *ngIf="aktiveSeite === 'statistik'">
+    <h2>Statistik</h2>
+    <div class="stat-grid">
+      <div>
+        <h3>Frauenanteil pro Klasse</h3>
+        <ul>
+          <li *ngFor="let f of frauenanteil">{{ f.klasse }}: {{ f.anteil }}%</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Geschlechterverteilung</h3>
+        <ul>
+          <li *ngFor="let g of geschlechterverteilung">{{ g.geschlecht }}: {{ g.anzahl }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>

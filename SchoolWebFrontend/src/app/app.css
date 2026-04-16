@@ -1,0 +1,117 @@
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+}
+
+.seite {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin-top: 4px;
+  color: #555;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+button {
+  border: 1px solid #ccc;
+  background: white;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+button.aktiv {
+  background: #2f5fd0;
+  color: white;
+  border-color: #2f5fd0;
+}
+
+.status {
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.loading {
+  background: #fff8d7;
+}
+
+.fehler {
+  background: #ffe1e1;
+}
+
+.erfolg {
+  background: #e2ffe6;
+}
+
+.kacheln {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.kachel {
+  border: 1px solid #ddd;
+  padding: 10px;
+  min-width: 140px;
+  background: #fafafa;
+}
+
+.kachel span {
+  display: block;
+  color: #555;
+}
+
+.kachel strong {
+  font-size: 24px;
+}
+
+.formular {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+input,
+select {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 700px) {
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
