@@ -4,9 +4,14 @@
 }
 
 .seite {
-  max-width: 1000px;
+  max-width: 950px;
   margin: 0 auto;
   padding: 16px;
+}
+
+header {
+  border-bottom: 1px solid #dddddd;
+  margin-bottom: 15px;
 }
 
 header h1 {
@@ -15,45 +20,43 @@ header h1 {
 
 header p {
   margin-top: 4px;
-  color: #555;
+  color: #555555;
 }
 
 nav {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  margin: 16px 0;
+  margin-bottom: 16px;
 }
 
 button {
-  border: 1px solid #ccc;
-  background: white;
-  padding: 8px 12px;
+  border: 1px solid #aaaaaa;
+  background: #eeeeee;
+  padding: 7px 12px;
   cursor: pointer;
 }
 
 button.aktiv {
   background: #2f5fd0;
   color: white;
-  border-color: #2f5fd0;
 }
 
 .status {
-  padding: 10px;
-  border-radius: 4px;
+  padding: 8px;
   margin-bottom: 10px;
 }
 
 .loading {
-  background: #fff8d7;
+  background: #fff3cd;
 }
 
 .fehler {
-  background: #ffe1e1;
+  background: #f8d7da;
 }
 
 .erfolg {
-  background: #e2ffe6;
+  background: #d4edda;
 }
 
 .kacheln {
@@ -63,15 +66,15 @@ button.aktiv {
 }
 
 .kachel {
-  border: 1px solid #ddd;
+  border: 1px solid #cccccc;
   padding: 10px;
-  min-width: 140px;
-  background: #fafafa;
+  min-width: 120px;
+  background: #f7f7f7;
 }
 
 .kachel span {
   display: block;
-  color: #555;
+  margin-bottom: 5px;
 }
 
 .kachel strong {
@@ -87,21 +90,24 @@ button.aktiv {
 
 input,
 select {
-  border: 1px solid #ccc;
-  padding: 8px;
+  border: 1px solid #aaaaaa;
+  padding: 7px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
 }
 
 th,
 td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  border: 1px solid #cccccc;
+  padding: 7px;
   text-align: left;
+}
+
+th {
+  background: #eeeeee;
 }
 
 .stat-grid {

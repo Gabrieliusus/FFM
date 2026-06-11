@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  color: #222222;
+}
+
+.seite {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+  background: white;
+  min-height: 100vh;
+}
+
+header {
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 18px;
+}
+
+.karten {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.karten article {
+  border: 1px solid #cccccc;
+  background: #fafafa;
+  padding: 12px;
+  width: 130px;
+}
+
+.karten span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.karten strong {
+  font-size: 26px;
+}
+
+section {
+  margin-top: 18px;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+input,
+select,
+button {
+  padding: 8px;
+  border: 1px solid #aaaaaa;
+}
+
+button {
+  background: #2f5fd0;
+  color: white;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #cccccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background: #eeeeee;
+}
+
+.zweispaltig {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .zweispaltig {
+    grid-template-columns: 1fr;
+  }
+}

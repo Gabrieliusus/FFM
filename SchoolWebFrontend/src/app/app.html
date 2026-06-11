@@ -1,7 +1,7 @@
 <div class="seite">
   <header>
     <h1>{{ title }}</h1>
-    <p>Einfaches Frontend für SchoolWeb</p>
+    <p>Eine einfache Angular-App für die Schulverwaltung.</p>
   </header>
 
   <nav>
@@ -12,7 +12,7 @@
     <button (click)="setSeite('statistik')" [class.aktiv]="aktiveSeite === 'statistik'">Statistik</button>
   </nav>
 
-  <div class="status loading" *ngIf="loading">Lade Daten...</div>
+  <div class="status loading" *ngIf="loading">Daten werden geladen...</div>
   <div class="status fehler" *ngIf="fehler">{{ fehler }}</div>
   <div class="status erfolg" *ngIf="erfolg">{{ erfolg }}</div>
 
@@ -36,15 +36,16 @@
 
   <section *ngIf="aktiveSeite === 'schueler'">
     <h2>Schüler</h2>
-    <h3>Schüler erstellen</h3>
+
+    <h3>Neuen Schüler speichern</h3>
     <form (ngSubmit)="schuelerSpeichern()" class="formular">
-      <input type="text" name="klasse" [(ngModel)]="neuerSchueler.klasse" placeholder="Klasse">
+      <input type="text" name="klasse" [(ngModel)]="neuerSchueler.klasse" placeholder="Klasse, z.B. 3AHIF">
       <input type="date" name="geburtstag" [(ngModel)]="neuerSchueler.geburtstag">
       <select name="geschlecht" [(ngModel)]="neuerSchueler.geschlecht">
         <option value="weiblich">weiblich</option>
         <option value="männlich">männlich</option>
       </select>
-      <button type="submit">Schüler speichern</button>
+      <button type="submit">Speichern</button>
     </form>
 
     <table>
@@ -74,6 +75,7 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
+          <th>Kürzel</th>
           <th>Fachbereich</th>
           <th>Erfahrung</th>
         </tr>
@@ -82,6 +84,7 @@
         <tr *ngFor="let l of lehrer">
           <td>{{ l.id }}</td>
           <td>{{ l.vorname }} {{ l.nachname }}</td>
+          <td>{{ l.kuerzel }}</td>
           <td>{{ l.fachbereich }}</td>
           <td>{{ l.erfahrung }} Jahre</td>
         </tr>
@@ -95,7 +98,7 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>m²</th>
+          <th>Größe</th>
           <th>Plätze</th>
           <th>Cynap</th>
         </tr>
@@ -103,7 +106,7 @@
       <tbody>
         <tr *ngFor="let r of klassenraeume">
           <td>{{ r.name }}</td>
-          <td>{{ r.raumInQm }}</td>
+          <td>{{ r.raumInQm }} m²</td>
           <td>{{ r.plaetze }}</td>
           <td>{{ r.hasCynap ? 'Ja' : 'Nein' }}</td>
         </tr>

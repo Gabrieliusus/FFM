@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Low-Code Schulverwaltung</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="seite">
+    <header>
+      <h1>Low-Code Schulverwaltung</h1>
+      <p>Ein einfacher Prototyp mit Formularen, Listen und lokalen Beispieldaten.</p>
+    </header>
+
+    <section class="karten">
+      <article>
+        <span>Schüler</span>
+        <strong id="anzahlSchueler">0</strong>
+      </article>
+      <article>
+        <span>Lehrer</span>
+        <strong id="anzahlLehrer">0</strong>
+      </article>
+      <article>
+        <span>Räume</span>
+        <strong id="anzahlRaeume">0</strong>
+      </article>
+    </section>
+
+    <section>
+      <h2>Schüler erfassen</h2>
+      <form id="schuelerForm">
+        <input id="name" placeholder="Name" required>
+        <input id="klasse" placeholder="Klasse" required>
+        <select id="geschlecht">
+          <option value="weiblich">weiblich</option>
+          <option value="männlich">männlich</option>
+        </select>
+        <button type="submit">Speichern</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Schülerliste</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Klasse</th>
+            <th>Geschlecht</th>
+            <th>Aktion</th>
+          </tr>
+        </thead>
+        <tbody id="schuelerTabelle"></tbody>
+      </table>
+    </section>
+
+    <section class="zweispaltig">
+      <div>
+        <h2>Lehrer</h2>
+        <ul id="lehrerListe"></ul>
+      </div>
+      <div>
+        <h2>Räume</h2>
+        <ul id="raumListe"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -17,7 +17,7 @@ import {
   styleUrl: './app.css'
 })
 export class App {
-  title = 'SchoolWeb Frontend';
+  title = 'Schulverwaltung';
   aktiveSeite = 'dashboard';
 
   schueler: Schueler[] = [];
@@ -49,17 +49,13 @@ export class App {
 
     if (seite === 'dashboard') {
       this.ladeDashboard();
-    }
-    if (seite === 'schueler') {
+    } else if (seite === 'schueler') {
       this.ladeSchueler();
-    }
-    if (seite === 'lehrer') {
+    } else if (seite === 'lehrer') {
       this.ladeLehrer();
-    }
-    if (seite === 'raeume') {
+    } else if (seite === 'raeume') {
       this.ladeKlassenraeume();
-    }
-    if (seite === 'statistik') {
+    } else if (seite === 'statistik') {
       this.ladeStatistik();
     }
   }
@@ -75,19 +71,25 @@ export class App {
       },
       error: () => {
         this.loading = false;
-        this.fehler = 'Backend nicht erreichbar. Starte SchoolWeb zuerst.';
+        this.fehler = 'Backend nicht erreichbar. Bitte SchoolWeb starten.';
       }
     });
 
     this.api.getLehrer().subscribe({
       next: (daten) => {
         this.lehrer = daten;
+      },
+      error: () => {
+        this.lehrer = [];
       }
     });
 
     this.api.getKlassenraeume().subscribe({
       next: (daten) => {
         this.klassenraeume = daten;
+      },
+      error: () => {
+        this.klassenraeume = [];
       }
     });
   }
@@ -150,6 +152,9 @@ export class App {
     this.api.getGeschlechterverteilung().subscribe({
       next: (daten) => {
         this.geschlechterverteilung = daten;
+      },
+      error: () => {
+        this.geschlechterverteilung = [];
       }
     });
   }
